@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modern Web Development Demo</title>
+
+    <!-- CSS Styling -->
+    <style>
+        body {
+            background-color: rgb(17, 168, 173);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 100px;
+        }
+
+        h1 {
+            color: rgb(58, 58, 172);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            font-size: 30px;
+        }
+
+        ul {
+            list-style-type: square;
+            width: 200px;
+            margin: auto;
+            text-align: left;
+        }
+
+        button {
+            background-color: rgb(19, 26, 19);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            margin: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        #result, #joke {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HTML Content -->
+    <h1>Welcome to Modern Application Development</h1>
+    <p>This page demonstrates HTML, CSS, JavaScript, and API usage.</p>
+
+    <!-- Hobbies Section -->
+    <h2>My Hobbies</h2>
+    <ul>
+        <li>Reading</li>
+        <li>Coding</li>
+        <li>Music</li>
+    </ul>
+
+    <hr>
+
+    <!-- JavaScript Addition Example -->
+    <h2>Simple Addition</h2>
+    <button onclick="addNumbers()">Add Numbers</button>
+    <p id="result"></p>
+
+    <hr>
+
+    <!-- Client-Server API Example -->
+    <h2>Get Random Joke</h2>
+    <button onclick="getJoke()">Get Joke</button>
+    <p id="joke"></p>
+
+    <!-- JavaScript Section -->
+    <script>
+
+        // Simple Addition Function
+        function addNumbers() {
+            let a = 100;
+            let b = 999;
+            let sum = a - b;
+
+            document.getElementById("result").innerHTML =
+                "Sum is: " + sum;
+        }
+
+        // Fetch API Example (Client-Server Communication)
+        function getJoke() {
+            fetch("https://official-joke-api.appspot.com/random_joke")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("joke").innerHTML =
+                    data.setup + " - " + data.punchline;
+            })
+            .catch(error => {
+                document.getElementById("joke").innerHTML =
+                    "Failed to load joke.";
+            });
+        }
+
+    </script>
+
+</body>
+</html>
